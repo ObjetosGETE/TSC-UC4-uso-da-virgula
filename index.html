@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posicione a vírgula</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <div class="body-game">
+        <div class="tela-interacao">
+
+            <div class="status row">
+                <img src="assets/img/logo_menor.png" class="img-fluid titulo" alt="titulo organize the words">
+            </div>
+            <div class="bodyJogo">
+                <div id="zonaDeSoltar" class="zona-soltar"></div>
+                <div class="areaVirgulas"></div>
+                <button id="proximaFrase" class="btn btn-success" style="display: none;"> Próxima</button>
+            </div>
+
+        </div>
+        <!-- Modal Feedback -->
+        <div id="modalFeedback" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">
+                            Parabéns</h5>
+                    </div>
+                    <div class="modal-body">
+                        <img src="assets/img/" class="img-fluid gif-modal" alt="titulo organize the words">
+                        <p id="textoFeedbackFinal"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Tela final -->
+
+        <div class="modal fade" id="modalFimDoJogo" tabindex="-1" aria-labelledby="fimDoJogoLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="fimDoJogoLabel">Fim do
+                            Jogo</h5>
+                    </div>
+                    <div class="modal-body">
+                        <img src="assets/img/estrelaFinal.gif" class="img-fluid gif-modal" alt="estrelas">
+                        <p id="textoFimDoJogo">Parabéns! <br>
+                            Você concluiu o desafio de organizar as
+                            palavras, totalizando em.
+                            Clique no botão "restart" para tentar novamente
+                            ou em "close" para concluir a atividade!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnReiniciar" type="button" class="btn btn-primary pulsar"
+                            data-dismiss="modal">Restar</button>
+                        <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- força o usuário a virar a tela do celular -->
+
+    <div class="modo-smart">
+        <div class="text-center">
+            <p class="p-paisagem text-center">
+                <img src="assets/img/vire.gif" class="img-fluid img-paisagem d-inline-block"><br>
+                <strong>Por favor, gire o aparelho para o modo
+                    paisagem.</strong>
+            </p>
+        </div>
+    </div>
+
+    <audio id="audio-acerto">
+        <source src="assets/audio/acerto.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="audio-errado">
+        <source src="assets/audio/erro.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="audio-clique">
+        <source src="assets/audio/clique.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
