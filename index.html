@@ -14,7 +14,10 @@
         <div class="tela-interacao">
 
             <div class="status row">
-                <img src="assets/img/logo_menor.png" class="img-fluid titulo" alt="titulo organize the words">
+                <div class="logo col-4"><img src="assets/img/Encaixe_vírgula.png" alt=" Logo Encaixe a vírgula" class="w-100"></div>
+                
+               
+                <p class="p-intro-game col">Vamos testar seus conhecimentos sobre pontuação. Arraste a vírgula para a posição correta na frase. </p>
             </div>
             <div class="bodyJogo">
                 <div id="zonaDeSoltar" class="zona-soltar"></div>
@@ -27,16 +30,14 @@
         <div id="modalFeedback" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">
-                            Parabéns</h5>
+                    <div class="modal-header header-modal-game">
+                        <h5 class="modal-title">Parabéns</h5>
                     </div>
                     <div class="modal-body">
-                        <img src="assets/img/" class="img-fluid gif-modal" alt="titulo organize the words">
-                        <p id="textoFeedbackFinal"></p>
+                        <p class="textoFeedbackFinal">Ótimo! Você posicionou corretamente as vírgulas! </p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-secondary btn-close-obj" data-dismiss="modal">Fechar</button>
                     </div>
                 </div>
             </div>
@@ -47,22 +48,16 @@
         <div class="modal fade" id="modalFimDoJogo" tabindex="-1" aria-labelledby="fimDoJogoLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header header-modal-game">
                         <h5 class="modal-title" id="fimDoJogoLabel">Fim do
                             Jogo</h5>
                     </div>
                     <div class="modal-body">
-                        <img src="assets/img/estrelaFinal.gif" class="img-fluid gif-modal" alt="estrelas">
-                        <p id="textoFimDoJogo">Parabéns! <br>
-                            Você concluiu o desafio de organizar as
-                            palavras, totalizando em.
-                            Clique no botão "restart" para tentar novamente
-                            ou em "close" para concluir a atividade!</p>
+                        <p class="textoFeedbackFinal"> <strong>Concluído com sucesso! </strong><br>
+                            Perfeito! Você acertou todas as vírgulas nas frases. Parabéns! </p>
                     </div>
                     <div class="modal-footer">
-                        <button id="btnReiniciar" type="button" class="btn btn-primary pulsar"
-                            data-dismiss="modal">Restar</button>
-                        <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary btn-close-obj" data-dismiss="modal">Fechar</button>
                     </div>
                 </div>
             </div>

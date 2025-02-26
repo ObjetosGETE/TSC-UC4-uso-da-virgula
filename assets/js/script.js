@@ -1,28 +1,28 @@
 $(document).ready(function () {
   var frases = [
     {
-      words: ["Os","recursos","foram","aplicados","em","uniformes","mobílias","equipamentos","eletrônicos","e","materiais","de","escritório."],
-      correctIndexes: [5,6],
+      words: ["Os", "recursos", "foram", "aplicados", "em", "uniformes", "mobílias", "equipamentos", "eletrônicos", "e", "materiais", "de", "escritório."],
+      correctIndexes: [5, 6],
       commas: 2
     },
     {
-      words: ["A","secretária","não","possui","terras","nem","no","Ceará","nem","em","qualquer","outro","estado."],
+      words: ["A", "secretária", "não", "possui", "terras", "nem", "no", "Ceará", "nem", "em", "qualquer", "outro", "estado."],
       correctIndexes: [7],
       commas: 1
     },
     {
-      words: ["O","sigilo","bancário","brasileiro","tem","sido","ameaçado","por","uma","crescente","discreta","e","eficaz","pressão","da","Justiça."],
-      correctIndexes: [9,10],
+      words: ["O", "sigilo", "bancário", "brasileiro", "tem", "sido", "ameaçado", "por", "uma", "crescente", "discreta", "e", "eficaz", "pressão", "da", "Justiça."],
+      correctIndexes: [9, 10],
       commas: 2
     },
     {
-      words: ["Fez","o","discurso","mais","completo","irônico","verdadeiro","e","humano","que","já","vimos."],
-      correctIndexes: [4,5],
+      words: ["Fez", "o", "discurso", "mais", "completo", "irônico", "verdadeiro", "e", "humano", "que", "já", "vimos."],
+      correctIndexes: [4, 5],
       commas: 2
     },
     {
-      words: ["O","substantivo","ou","seu","substituto","deve","ficar","em","negrito."],
-      correctIndexes: [1,4],
+      words: ["O", "substantivo", "ou", "seu", "substituto", "deve", "ficar", "em", "negrito."],
+      correctIndexes: [1, 4],
       commas: 2
     }
   ];
@@ -93,8 +93,10 @@ $(document).ready(function () {
           }
         });
         if (commasPlaced === totalVirgulasNaFrase) {
+          $(".areaVirgulas").hide();
           $("#modalFeedback").modal("show");
           $("#modalFeedback").on('hidden.bs.modal', function () {
+
             $("#proximaFrase").show();
           });
         }
@@ -106,16 +108,13 @@ $(document).ready(function () {
   $("#proximaFrase").on("click", function () {
     fraseAtual++;
     if (fraseAtual < totalFrases) {
+      $(".areaVirgulas").show();
       carregarFrase(fraseAtual);
     } else {
       $("#modalFimDoJogo").modal("show");
+      $("#proximaFrase").hide();
     }
   });
 
-  $("#btnReiniciar").on("click", function () {
-    fraseAtual = 0;
-    carregarFrase(fraseAtual);
-  });
-
-  $(".btn-close").on("click", function () {});
+  $(".btn-close-obj").on("click", function () { });
 });
