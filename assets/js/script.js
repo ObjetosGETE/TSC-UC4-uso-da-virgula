@@ -1,30 +1,98 @@
 $(document).ready(function () {
   var frases = [
     {
-      words: ["Os", "recursos", "foram", "aplicados", "em", "uniformes", "mobílias", "equipamentos", "eletrônicos", "e", "materiais", "de", "escritório."],
+      words: [
+        "Os",
+        "recursos",
+        "foram",
+        "aplicados",
+        "em",
+        "uniformes",
+        "mobílias",
+        "equipamentos",
+        "eletrônicos",
+        "e",
+        "materiais",
+        "de",
+        "escritório.",
+      ],
       correctIndexes: [5, 6],
-      commas: 2
+      commas: 2,
     },
     {
-      words: ["A", "secretária", "não", "possui", "terras", "nem", "no", "Ceará", "nem", "em", "qualquer", "outro", "estado."],
+      words: [
+        "A",
+        "secretária",
+        "não",
+        "possui",
+        "terras",
+        "nem",
+        "no",
+        "Ceará",
+        "nem",
+        "em",
+        "qualquer",
+        "outro",
+        "estado.",
+      ],
       correctIndexes: [7],
-      commas: 1
+      commas: 1,
     },
     {
-      words: ["O", "sigilo", "bancário", "brasileiro", "tem", "sido", "ameaçado", "por", "uma", "crescente", "discreta", "e", "eficaz", "pressão", "da", "Justiça."],
+      words: [
+        "O",
+        "sigilo",
+        "bancário",
+        "brasileiro",
+        "tem",
+        "sido",
+        "ameaçado",
+        "por",
+        "uma",
+        "crescente",
+        "discreta",
+        "e",
+        "eficaz",
+        "pressão",
+        "da",
+        "Justiça.",
+      ],
       correctIndexes: [9, 10],
-      commas: 2
+      commas: 2,
     },
     {
-      words: ["Fez", "o", "discurso", "mais", "completo", "irônico", "verdadeiro", "e", "humano", "que", "já", "vimos."],
+      words: [
+        "Fez",
+        "o",
+        "discurso",
+        "mais",
+        "completo",
+        "irônico",
+        "verdadeiro",
+        "e",
+        "humano",
+        "que",
+        "já",
+        "vimos.",
+      ],
       correctIndexes: [4, 5],
-      commas: 2
+      commas: 2,
     },
     {
-      words: ["O", "substantivo", "ou", "seu", "substituto", "deve", "ficar", "em", "negrito."],
+      words: [
+        "O",
+        "substantivo",
+        "ou",
+        "seu",
+        "substituto",
+        "deve",
+        "ficar",
+        "em",
+        "negrito.",
+      ],
       correctIndexes: [1, 4],
-      commas: 2
-    }
+      commas: 2,
+    },
   ];
   var fraseAtual = 0;
   var totalFrases = frases.length;
@@ -46,7 +114,10 @@ $(document).ready(function () {
     var fraseHtml = "";
     for (var i = 0; i < words.length; i++) {
       fraseHtml += "<span class='word'>" + words[i] + "</span>";
-      fraseHtml += " <span class='drop-zone' data-index='" + i + "' data-correct='false'></span> ";
+      fraseHtml +=
+        " <span class='drop-zone' data-index='" +
+        i +
+        "' data-correct='false'></span> ";
     }
     $("#zonaDeSoltar").html(fraseHtml);
     for (var c = 0; c < totalVirgulasNaFrase; c++) {
@@ -57,7 +128,7 @@ $(document).ready(function () {
       revert: "invalid",
       start: function () {
         if (audioClique) audioClique.play();
-      }
+      },
     });
     $(".drop-zone").droppable({
       accept: ".draggable",
@@ -78,29 +149,47 @@ $(document).ready(function () {
         var fraseInfo = frases[fraseAtual];
         if (fraseInfo.correctIndexes.includes(indexGap)) {
           dropZone.attr("data-correct", "true");
-          virgulaArrastada.removeClass("virgula-errada").addClass("virgula-correta");
+          virgulaArrastada
+            .removeClass("virgula-errada")
+            .addClass("virgula-correta");
           commasPlaced++;
           if (audioAcerto) audioAcerto.play();
         } else {
           dropZone.attr("data-correct", "false");
-          virgulaArrastada.removeClass("virgula-correta").addClass("virgula-errada");
+          virgulaArrastada
+            .removeClass("virgula-correta")
+            .addClass("virgula-errada");
+
           if (audioErro) audioErro.play();
+
+          setTimeout(function () {
+            virgulaArrastada.removeClass("virgula-errada virgula-correta");
+            virgulaArrastada
+              .detach()
+              .css({ top: 0, left: 0 })
+              .appendTo(".areaVirgulas");
+            virgulaArrastada.draggable({
+              revert: "invalid",
+              start: function () {
+                if (audioClique) audioClique.play();
+              },
+            });
+          }, 1000);
         }
         virgulaArrastada.draggable({
           revert: "invalid",
           start: function () {
             if (audioClique) audioClique.play();
-          }
+          },
         });
         if (commasPlaced === totalVirgulasNaFrase) {
           $(".areaVirgulas").hide();
           $("#modalFeedback").modal("show");
-          $("#modalFeedback").on('hidden.bs.modal', function () {
-
+          $("#modalFeedback").on("hidden.bs.modal", function () {
             $("#proximaFrase").show();
           });
         }
-      }
+      },
     });
     $("#proximaFrase").hide();
   }
@@ -116,5 +205,5 @@ $(document).ready(function () {
     }
   });
 
-  $(".btn-close-obj").on("click", function () { });
+  $(".btn-close-obj").on("click", function () {});
 });

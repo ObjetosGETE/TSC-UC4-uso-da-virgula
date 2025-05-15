@@ -1,9 +1,9 @@
 
 
 .body-game {
-  display: flex;             /* Habilita o flex container */
-  justify-content: center;   /* Centraliza horizontalmente */
-  align-items: center;       /* Centraliza verticalmente */
+  display: flex;             
+  justify-content: center;   
+  align-items: center;       
   padding: 0;
   margin: 0;
 }
@@ -58,13 +58,12 @@
 
 .drop-zone {
   display: inline-block;
-  min-width: 29.2px;
+  min-width: 33.0px;
   min-height: 35.5px;
   vertical-align: middle;
-  background-color: #fff0;
   border-radius: 10px;
+  border: 3px dashed #ccc;
 }
-
 
 .word {
   font-family: 'Roboto', sans-serif;
@@ -253,40 +252,3 @@
   opacity: 0.5;
 }
 
-
-/**********************************************************/
-/******************* vire o celular ***********************/
-/**********************************************************/
-
-.p-paisagem {
-  color: white;
-  text-align: center;
-}
-
-.img-paisagem {
-  max-width: 70% !important;
-  height: auto;
-  display: block;
-}
-
-.modo-smart {
-  display: none;
-}
-
-@media only screen and (orientation: portrait) {
-  .modo-smart {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    margin: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #5b2885;
-    z-index: 9999999999999999999;
-  }
-}
